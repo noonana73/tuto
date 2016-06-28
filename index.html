@@ -43,8 +43,8 @@
 		dy = mouseY - balls[i].posY,
 		d = Math.sqrt(dx*dx+dy*dy);
 		if(d < balls[i].radius){
-			return i;
 			prendreballe = true;
+			return i;
 		}
   	}
   }
@@ -56,7 +56,7 @@
 		collision_balle(i);
 		mouvementball(i);
 		dessinBall(i);
-		interaction(i);
+		interaction();
 		}
 	}
 	function dessinBall(i){
@@ -105,8 +105,8 @@
 			}
 	
 	}
-	function interaction(i){
-		if(mouseDown === true && prendreballe === true){
+	function interaction(){
+		if(mouseDown == true && prendreballe == true){
         balls[balle].posX = mouseX;
         balls[balle].posY = mouseY;
 		}

@@ -39,8 +39,8 @@
   
   function trouverlaballe(){
   	for(var i = 0; i < nbr_circles-1; i ++){
-  		var dx = mouseX - balls[i].posX,
-		dy = mouseY - balls[i].posY,
+  		var dx = mouseX - balls[i].posX+10,
+		dy = mouseY - balls[i].posY+10,
 		d = Math.sqrt(dx*dx+dy*dy);
 		if(d < balls[i].radius){
 			prendreballe = true;

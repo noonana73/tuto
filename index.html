@@ -7,6 +7,7 @@
 	var nbr_circles = 20;
 	var attente = 0;
 	var balle = 0;
+	var prendreballe = false;
 	
 	for(var i = 0; i < nbr_circles; i ++){
 	balls.push ({
@@ -29,6 +30,7 @@
 
   canv.addEventListener('mouseup', function(e){
     mouseDown = false;
+    prendreballe = false;
   });
   canv.addEventListener('mousemove', function(e){
     mouseX = e.pageX;
@@ -42,6 +44,7 @@
 		d = Math.sqrt(dx*dx+dy*dy);
 		if(d < balls[i].radius){
 			return i;
+			prendreballe = true;
 		}
   	}
   }

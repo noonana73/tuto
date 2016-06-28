@@ -6,6 +6,7 @@
 	var balls = [];
 	var nbr_circles = 20;
 	var attente = 0;
+	var balle = 0;
 	
 	for(var i = 0; i < nbr_circles; i ++){
 	balls.push ({
@@ -23,7 +24,7 @@
     mouseDown = true;
     mouseX = e.pageX;
     mouseY = e.pageY;
-    trouverlaballe();
+    balle = trouverlaballe();
   });
 
   canv.addEventListener('mouseup', function(e){
@@ -40,7 +41,8 @@
 		dy = mouseY - balls[i].posY,
 		d = Math.sqrt(dx*dx+dy*dy);
 		if(d < balls[i].radius){
-			console.log("cc");
+			break;
+			return i;
 		}
   	}
   }
@@ -103,10 +105,8 @@
 	}
 	function interaction(i){
 		if(mouseDown){
-        var dx = mouseX - balls[i].posX;
-        var dy = mouseY - balls[i].posY;
-        balls[i].VX += dx * 0.001;
-        balls[i].VY += dy * 0.001;
+        balls[balle].posX = mouseX;
+        balls[balle].posY = mouseY;
 		}
       }
 })()

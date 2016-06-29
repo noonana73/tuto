@@ -26,6 +26,7 @@
     mouseX = e.pageX;
     mouseY = e.pageY;
     balle = trouverlaballe();
+    interaction(e);
   });
 
   canv.addEventListener('mouseup', function(e){
@@ -33,6 +34,7 @@
     prendreballe = false;
   });
   canv.addEventListener('mousemove', function(e){
+    interaction(e);
     mouseX = e.pageX;
     mouseY = e.pageY;
   });
@@ -56,7 +58,6 @@
 		collision_balle(i);
 		mouvementball(i);
 		dessinBall(i);
-		interaction();
 		}
 	}
 	function dessinBall(i){
@@ -105,10 +106,12 @@
 			}
 	
 	}
-	function interaction(){
+	function interaction(e){
 		if(mouseDown == true && prendreballe == true){
         balls[balle].posX = mouseX;
         balls[balle].posY = mouseY;
+        balls[balle].VX = (e.pageX - mouseX)*30;
+        balls[balle].VY = (e.pageY - mouseY)*30;
 		}
       }
 })()

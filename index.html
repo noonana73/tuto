@@ -55,9 +55,11 @@
 	    ctx.clearRect(0,0,canv.width,canv.height);
 		ctx.beginPath();
 		for(var i = 0; i < nbr_circles-1; i ++){
+			if(i != balle){
 		collision_balle(i);
 		mouvementball(i);
 		dessinBall(i);
+			}
 		}
 	}
 	function dessinBall(i){
